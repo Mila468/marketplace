@@ -1,0 +1,6 @@
+{
+  "name": "kolo-toolkit",
+  "version": "1.0.0",
+  "description": "Scaffolding and guardrails for the Kolo Expo app: feature-first BC scaffolding, screen scaffolding, and .env protection.",
+  "author": { "name": "Ludmila Fursenko" }
+}
