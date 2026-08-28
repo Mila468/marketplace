@@ -1,14 +1,16 @@
 {
-  "PreToolUse": [
-    {
-      "matcher": "Write|Edit",
-      "hooks": [
-        {
-          "type": "command",
-          "command": "jq -r '.tool_input.file_path // empty' | grep -Eq '(^|/)\\.env($|\\.[^/]*$)' && echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Team policy: .env files are protected from edits by Claude Code\"}}' || echo '{}'",
-          "timeout": 5
-        }
-      ]
-    }
-  ]
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // empty' | grep -Eq '(^|/)\\.env($|\\.[^/]*$)' && echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PreToolUse\",\"permissionDecision\":\"deny\",\"permissionDecisionReason\":\"Team policy: .env files are protected from edits by Claude Code\"}}' || echo '{}'",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
 }
